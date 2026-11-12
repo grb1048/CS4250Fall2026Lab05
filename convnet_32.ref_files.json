@@ -1,0 +1,20 @@
+{
+  "version": "v1.30.2-20260831",
+  "files": {
+    "origin_model": {
+      "path": "onnx/convnet_32.onnx",
+      "last_modify": 1794257109.2275558
+    },
+    "origin_mlir": {
+      "path": "convnet_32_origin.mlir",
+      "last_modify": 1794257113.9265556
+    },
+    "top_mlir": {
+      "path": "convnet_32.mlir",
+      "last_modify": 1794257113.9746602
+    }
+  },
+  "commands": {
+    "transform_cmd": "/home/gb/sg2000-hints/tools/venv/lib/python3.10/site-packages/tpu_mlir/python/tools/model_transform.py --model_name convnet_32 --model_def onnx/convnet_32.onnx --input_shapes [[1,3,32,32]] --mlir convnet_32.mlir"
+  }
+}

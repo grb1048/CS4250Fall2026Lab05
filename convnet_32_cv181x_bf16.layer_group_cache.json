@@ -1,0 +1,94 @@
+{
+  "opt": 2,
+  "total subfunc": 1,
+  "subfunc_0": {
+    "subfunc idx": 0,
+    "GroupLayer": [
+      {
+        "base_group_idx": 1,
+        "start_idx": 0,
+        "end_idx": 2,
+        "func_start_idx": 1,
+        "func_end_idx": 3,
+        "group_cost": 16580,
+        "index": 1,
+        "locs": [
+          "r1_Relu",
+          "r2_Relu",
+          "g_GlobalAveragePool"
+        ],
+        "shape_secs": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "GlobalLayer": [
+      {
+        "index": 0,
+        "func_idx": 0,
+        "group_cost": 0,
+        "loc": "inputr1_Relu_bf16"
+      },
+      {
+        "index": 2,
+        "func_idx": 4,
+        "group_cost": 0,
+        "loc": "f_Flatten"
+      },
+      {
+        "index": 3,
+        "func_idx": 5,
+        "group_cost": 0,
+        "loc": "output_Gemm"
+      },
+      {
+        "index": 4,
+        "func_idx": 6,
+        "group_cost": 0,
+        "loc": "output_Gemm_f32"
+      },
+      {
+        "index": 5,
+        "func_idx": 7,
+        "group_cost": 0,
+        "loc": "func.return"
+      }
+    ],
+    "CyclePrefixSum": [
+      {
+        "index": 0,
+        "prefix_end_idx": 0,
+        "cycle_prefix_sum": 0
+      },
+      {
+        "index": 1,
+        "prefix_end_idx": 3,
+        "cycle_prefix_sum": 16580
+      },
+      {
+        "index": 2,
+        "prefix_end_idx": 4,
+        "cycle_prefix_sum": 16580
+      },
+      {
+        "index": 3,
+        "prefix_end_idx": 5,
+        "cycle_prefix_sum": 16580
+      },
+      {
+        "index": 4,
+        "prefix_end_idx": 6,
+        "cycle_prefix_sum": 16580
+      },
+      {
+        "index": 5,
+        "prefix_end_idx": 7,
+        "cycle_prefix_sum": 16580
+      }
+    ]
+  }
+}

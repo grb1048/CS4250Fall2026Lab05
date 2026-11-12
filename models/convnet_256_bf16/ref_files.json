@@ -1,0 +1,39 @@
+{
+  "version": "v1.30.2-20260831",
+  "files": {
+    "tpuc_opt": {
+      "path": "../../../sg2000-hints/tools/venv/lib/python3.10/site-packages/tpu_mlir/bin/tpuc-opt",
+      "last_modify": 1793979924.8289998
+    },
+    "bmodel": {
+      "path": "../convnet_256_bf16.cvimodel",
+      "last_modify": 1793980180.4753213
+    },
+    "final_mlir": {
+      "path": "../../convnet_256_cv181x_bf16_final.mlir",
+      "last_modify": 1793980180.43975
+    },
+    "tpu_mlir": {
+      "path": "../../convnet_256_cv181x_bf16_tpu.mlir",
+      "last_modify": 1793980180.377683
+    },
+    "context_dir": {
+      "path": ".",
+      "last_modify": 1793980180.4843037
+    },
+    "layer_group_cache": {
+      "path": "../../convnet_256_cv181x_bf16.layer_group_cache.json",
+      "last_modify": 1793980180.4361925
+    }
+  },
+  "properties": {
+    "prefix": "convnet_256_cv181x_bf16",
+    "chip": "cv181x",
+    "compare_all": false
+  },
+  "commands": {
+    "deploy_cmd": "/home/gb/sg2000-hints/tools/venv/lib/python3.10/site-packages/tpu_mlir/python/tools/model_deploy.py --mlir .build_convnet_256.mlir --chip cv181x --quantize BF16 --model models/convnet_256_bf16.cvimodel",
+    "final": "tpuc-opt convnet_256_cv181x_bf16_tpu.mlir --mlir-disable-threading --strip-io-quant=\"quant_input=False quant_output=False quant_input_list= quant_output_list= quant_output_bf16=False quant_input_int8=False quant_output_int8=False \" --processor-tpu-optimize --dev-parallel --weight-reorder  --subnet-divide=\"dynamic=False\" --op-reorder --topo-sort --layer-group=\"opt=2 group_by_cores=auto compress_mode=none debugger=0 disable_group_overlap=false lgcache=true config_filename= enable_lghash=False lghash_dir=\" --affine-opt  --core-parallel  --after-layergroup-weight-reorder  --address-assign -o convnet_256_cv181x_bf16_final.mlir --debug_cmd=",
+    "bmodel": "tpuc-opt convnet_256_cv181x_bf16_final.mlir --codegen=\"model_file=models/convnet_256_bf16.cvimodel embed_debug_info=False model_version=latest bmodel_only=False gdma_check=False rvti=False\" -o /dev/null"
+  }
+}

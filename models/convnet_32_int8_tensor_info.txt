@@ -1,0 +1,12 @@
+Cmdbuf1: layer_id, tensor_name, inGroup, ignore, gaddr, g_shape, lg_idx_slice, laddr, qtype, qscale. 
+0 load_0 true false x 1,3,32,32 0,1,0,32 8192 int8 2.000000
+1 load_r1_Relu_filter_reordered true true x x x x x x
+2 load_r1_Relu_bias_packed true true x x x x x x
+3 r1_Relu true false x 1,8,32,32 0,1,0,32 0 int8 1.945851
+4 load_r2_Relu_filter_reordered true true x x x x x x
+5 load_r2_Relu_bias_packed true true x x x x x x
+6 r2_Relu true false x 1,8,32,32 0,1,0,32 4096 int8 1.175745
+7 g_GlobalAveragePool true false x 1,8,1,1 0,1,0,1 12368 int8 0.525371
+8 g_GlobalAveragePool true true x x x x x x
+10 output_Gemm false false 16 1,10,1,1 x x int8 0.053849
+11 output_Gemm_f32 false false 4398046511104 1,10,1,1 x x fp32 1.000000

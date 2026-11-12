@@ -1,0 +1,16 @@
+# mlir version: v1.30.2-20260831 cali version 1.0
+# mlir: convnet_32.mlir
+# genetated time: 2026-11-05 20:21:58.198092
+# quantization threshold calculation method: ['kl']
+# histogram number: 2048
+# sample number: 20
+###
+# tune number: 5
+###
+# op_name    threshold    min    max
+input 254.0000000 0.0000000 254.0000000
+r1_Relu 247.1230164 -0.0000000 247.1230164
+r2_Relu 149.3196564 -0.0000000 149.3196564
+g_GlobalAveragePool 66.7220840 0.0000000 66.7220840
+f_Flatten 66.7220840 0.0000000 66.7220840
+output_Gemm 6.8388190 -6.8388190 5.4784455

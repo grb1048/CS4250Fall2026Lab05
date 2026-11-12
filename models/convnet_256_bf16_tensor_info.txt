@@ -1,0 +1,18 @@
+Cmdbuf1: layer_id, tensor_name, inGroup, ignore, gaddr, g_shape, lg_idx_slice, laddr, qtype, qscale. 
+0 inputr1_Relu_bf16 false false 0 1,3,256,256 x x bf16 1.000000
+1 r1_Relu false false 1048576 1,8,256,256 x x bf16 1.000000
+2 r2_Relu false false 0 1,8,256,256 x x bf16 1.000000
+3 slice_g_GlobalAveragePool256 false false 1048576 1,8,4,256 x x bf16 1.000000
+4 pool_g_GlobalAveragePool256 false false 1306624 1,8,1,1 x x bf16 1.000000
+5 slice_g_GlobalAveragePool252 false false 1048576 1,8,63,256 x x bf16 1.000000
+6 pool_g_GlobalAveragePool252 false false 1306640 1,8,1,1 x x bf16 1.000000
+7 slice_g_GlobalAveragePool189 false false 1048576 1,8,63,256 x x bf16 1.000000
+8 pool_g_GlobalAveragePool189 false false 1306656 1,8,1,1 x x bf16 1.000000
+9 slice_g_GlobalAveragePool126 false false 1048576 1,8,63,256 x x bf16 1.000000
+10 pool_g_GlobalAveragePool126 false false 1306672 1,8,1,1 x x bf16 1.000000
+11 slice_g_GlobalAveragePool63 false false 1048576 1,8,63,256 x x bf16 1.000000
+12 pool_g_GlobalAveragePool63 false false 0 1,8,1,1 x x bf16 1.000000
+13 concat_g_GlobalAveragePool false false 16 1,8,5,1 x x bf16 1.000000
+14 g_GlobalAveragePool false false 0 1,8,1,1 x x bf16 1.000000
+16 output_Gemm false false 16 1,10,1,1 x x bf16 1.000000
+17 output_Gemm_f32 false false 4398046511104 1,10,1,1 x x fp32 1.000000

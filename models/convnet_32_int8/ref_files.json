@@ -1,0 +1,35 @@
+{
+  "version": "v1.30.2-20260831",
+  "files": {
+    "tpuc_opt": {
+      "path": "../../../sg2000-hints/tools/venv/lib/python3.10/site-packages/tpu_mlir/bin/tpuc-opt",
+      "last_modify": 1793979924.8289998
+    },
+    "bmodel": {
+      "path": "../convnet_32_int8.cvimodel",
+      "last_modify": 1793980201.8547263
+    },
+    "final_mlir": {
+      "path": "../../convnet_32_cv181x_int8_sym_final.mlir",
+      "last_modify": 1793980201.8166347
+    },
+    "tpu_mlir": {
+      "path": "../../convnet_32_cv181x_int8_sym_tpu.mlir",
+      "last_modify": 1793980201.7553065
+    },
+    "context_dir": {
+      "path": ".",
+      "last_modify": 1793980201.8623302
+    }
+  },
+  "properties": {
+    "prefix": "convnet_32_cv181x_int8_sym",
+    "chip": "cv181x",
+    "compare_all": false
+  },
+  "commands": {
+    "deploy_cmd": "/home/gb/sg2000-hints/tools/venv/lib/python3.10/site-packages/tpu_mlir/python/tools/model_deploy.py --mlir .build_convnet_32.mlir --chip cv181x --quantize INT8 --model models/convnet_32_int8.cvimodel --calibration_table onnx/convnet_32_cali_table",
+    "final": "tpuc-opt convnet_32_cv181x_int8_sym_tpu.mlir --mlir-disable-threading --strip-io-quant=\"quant_input=False quant_output=False quant_input_list= quant_output_list= quant_output_bf16=False quant_input_int8=False quant_output_int8=False \" --processor-tpu-optimize --dev-parallel --weight-reorder  --subnet-divide=\"dynamic=False\" --op-reorder --topo-sort --layer-group=\"opt=2 group_by_cores=auto compress_mode=none debugger=0 disable_group_overlap=false lgcache=true config_filename= enable_lghash=False lghash_dir=\" --affine-opt  --core-parallel  --after-layergroup-weight-reorder  --address-assign -o convnet_32_cv181x_int8_sym_final.mlir --debug_cmd=",
+    "bmodel": "tpuc-opt convnet_32_cv181x_int8_sym_final.mlir --codegen=\"model_file=models/convnet_32_int8.cvimodel embed_debug_info=False model_version=latest bmodel_only=False gdma_check=False rvti=False\" -o /dev/null"
+  }
+}
